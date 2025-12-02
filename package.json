@@ -1,7 +1,7 @@
 {
-  "name": "colorful-heading-underline",
+  "name": "colorful-heading-underlines",
   "version": "0.1.0",
-  "description": "Adds colorful underlines to headings with customizable width modes",
+  "description": "Add colorful underlines to identify heading levels.",
   "type": "module",
   "main": "main.js",
   "scripts": {
