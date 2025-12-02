@@ -1,0 +1,34 @@
+{
+  "name": "colorful-heading-underline",
+  "version": "0.1.0",
+  "description": "Adds colorful underlines to headings with customizable width modes",
+  "type": "module",
+  "main": "main.js",
+  "scripts": {
+    "dev": "node esbuild.config.mjs",
+    "build": "node esbuild.config.mjs production",
+    "lint": "eslint src/",
+    "format": "prettier --write src/"
+  },
+  "keywords": [
+    "obsidian",
+    "plugin",
+    "headings",
+    "underline"
+  ],
+  "author": "greetclammy",
+  "license": "GPL-3.0",
+  "devDependencies": {
+    "@types/node": "^24.10.1",
+    "@typescript-eslint/eslint-plugin": "^8.48.1",
+    "@typescript-eslint/parser": "^8.48.1",
+    "builtin-modules": "^5.0.0",
+    "esbuild": "^0.27.0",
+    "eslint": "^9.39.1",
+    "eslint-plugin-obsidianmd": "^0.1.9",
+    "globals": "^16.5.0",
+    "obsidian": "^1.10.3",
+    "prettier": "^3.7.3",
+    "typescript": "^5.9.3"
+  }
+}

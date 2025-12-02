@@ -1,0 +1,9 @@
+{
+  "id": "colorful-heading-underline",
+  "name": "Colorful Heading Underline",
+  "version": "0.1.0",
+  "minAppVersion": "1.0.0",
+  "description": "Sets CSS variable for heading underline width based on widest text line",
+  "author": "greetclammy",
+  "isDesktopOnly": false
+}

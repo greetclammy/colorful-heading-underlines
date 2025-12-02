@@ -1,0 +1,711 @@
+/* @settings
+
+name: Colorful Heading Underline
+id: colorful-heading-underline
+settings:
+    -
+        id: chu-underline-heading
+        title: Underline
+        type: heading
+        level: 1
+    -
+        id: chu-underline-height
+        title: Height
+        description: Height in pixels
+        type: variable-number-slider
+        default: 4
+        min: 1
+        max: 20
+        step: 1
+        format: px
+    -
+        id: chu-underline-border-radius
+        title: Border radius
+        description: Roundness in pixels
+        type: variable-number-slider
+        default: 8
+        min: 0
+        max: 20
+        step: 1
+        format: px
+    -
+        id: chu-underline-opacity
+        title: Opacity
+        description: Color opacity percentage
+        type: variable-number-slider
+        default: 50
+        min: 0
+        max: 100
+        step: 5
+        format: "%"
+    -
+        id: chu-width-mode
+        title: Width mode
+        description: How to determine underline width for multi-line headings
+        type: class-select
+        allowEmpty: false
+        default: chu-width-widest
+        options:
+            -
+                label: Widest line
+                value: chu-width-widest
+            -
+                label: Last line
+                value: chu-width-last
+            -
+                label: Full line width
+                value: chu-width-full
+    -
+        id: chu-position-heading
+        title: Position
+        type: heading
+        level: 1
+    -
+        id: chu-position-read
+        title: Reading view offset
+        description: Vertical offset in em units
+        type: variable-number-slider
+        default: 0
+        min: -1
+        max: 1
+        step: 0.1
+        format: em
+    -
+        id: chu-position-edit
+        title: Editing view offset
+        description: Vertical offset in em units
+        type: variable-number-slider
+        default: -0.4
+        min: -1
+        max: 1
+        step: 0.1
+        format: em
+    -
+        id: chu-padding
+        title: Bottom padding
+        description: Padding below heading text in em units
+        type: variable-number-slider
+        default: 0.5
+        min: 0
+        max: 2
+        step: 0.1
+        format: em
+    -
+        id: chu-colors-heading
+        title: Colors
+        type: heading
+        level: 1
+    -
+        id: chu-h1-color
+        title: H1 underline color
+        type: class-select
+        allowEmpty: false
+        default: chu-h1-color-disable
+        options:
+            -
+                label: Disable
+                value: chu-h1-color-disable
+            -
+                label: Accent
+                value: chu-h1-color-accent
+            -
+                label: Red
+                value: chu-h1-color-red
+            -
+                label: Orange
+                value: chu-h1-color-orange
+            -
+                label: Yellow
+                value: chu-h1-color-yellow
+            -
+                label: Green
+                value: chu-h1-color-green
+            -
+                label: Cyan
+                value: chu-h1-color-cyan
+            -
+                label: Blue
+                value: chu-h1-color-blue
+            -
+                label: Purple
+                value: chu-h1-color-purple
+            -
+                label: Pink
+                value: chu-h1-color-pink
+            -
+                label: Custom
+                value: chu-h1-color-custom
+    -
+        id: chu-h1-color-custom
+        title: H1 custom underline color
+        type: variable-color
+        format: hex
+        default: '#'
+    -
+        id: chu-h2-color
+        title: H2 underline color
+        type: class-select
+        allowEmpty: false
+        default: chu-h2-color-red
+        options:
+            -
+                label: Disable
+                value: chu-h2-color-disable
+            -
+                label: Accent
+                value: chu-h2-color-accent
+            -
+                label: Red
+                value: chu-h2-color-red
+            -
+                label: Orange
+                value: chu-h2-color-orange
+            -
+                label: Yellow
+                value: chu-h2-color-yellow
+            -
+                label: Green
+                value: chu-h2-color-green
+            -
+                label: Cyan
+                value: chu-h2-color-cyan
+            -
+                label: Blue
+                value: chu-h2-color-blue
+            -
+                label: Purple
+                value: chu-h2-color-purple
+            -
+                label: Pink
+                value: chu-h2-color-pink
+            -
+                label: Custom
+                value: chu-h2-color-custom
+    -
+        id: chu-h2-color-custom
+        title: H2 custom underline color
+        type: variable-color
+        format: hex
+        default: '#'
+    -
+        id: chu-h3-color
+        title: H3 underline color
+        type: class-select
+        allowEmpty: false
+        default: chu-h3-color-yellow
+        options:
+            -
+                label: Disable
+                value: chu-h3-color-disable
+            -
+                label: Accent
+                value: chu-h3-color-accent
+            -
+                label: Red
+                value: chu-h3-color-red
+            -
+                label: Orange
+                value: chu-h3-color-orange
+            -
+                label: Yellow
+                value: chu-h3-color-yellow
+            -
+                label: Green
+                value: chu-h3-color-green
+            -
+                label: Cyan
+                value: chu-h3-color-cyan
+            -
+                label: Blue
+                value: chu-h3-color-blue
+            -
+                label: Purple
+                value: chu-h3-color-purple
+            -
+                label: Pink
+                value: chu-h3-color-pink
+            -
+                label: Custom
+                value: chu-h3-color-custom
+    -
+        id: chu-h3-color-custom
+        title: H3 custom underline color
+        type: variable-color
+        format: hex
+        default: '#'
+    -
+        id: chu-h4-color
+        title: H4 underline color
+        type: class-select
+        allowEmpty: false
+        default: chu-h4-color-green
+        options:
+            -
+                label: Disable
+                value: chu-h4-color-disable
+            -
+                label: Accent
+                value: chu-h4-color-accent
+            -
+                label: Red
+                value: chu-h4-color-red
+            -
+                label: Orange
+                value: chu-h4-color-orange
+            -
+                label: Yellow
+                value: chu-h4-color-yellow
+            -
+                label: Green
+                value: chu-h4-color-green
+            -
+                label: Cyan
+                value: chu-h4-color-cyan
+            -
+                label: Blue
+                value: chu-h4-color-blue
+            -
+                label: Purple
+                value: chu-h4-color-purple
+            -
+                label: Pink
+                value: chu-h4-color-pink
+            -
+                label: Custom
+                value: chu-h4-color-custom
+    -
+        id: chu-h4-color-custom
+        title: H4 custom underline color
+        type: variable-color
+        format: hex
+        default: '#'
+    -
+        id: chu-h5-color
+        title: H5 underline color
+        type: class-select
+        allowEmpty: false
+        default: chu-h5-color-blue
+        options:
+            -
+                label: Disable
+                value: chu-h5-color-disable
+            -
+                label: Accent
+                value: chu-h5-color-accent
+            -
+                label: Red
+                value: chu-h5-color-red
+            -
+                label: Orange
+                value: chu-h5-color-orange
+            -
+                label: Yellow
+                value: chu-h5-color-yellow
+            -
+                label: Green
+                value: chu-h5-color-green
+            -
+                label: Cyan
+                value: chu-h5-color-cyan
+            -
+                label: Blue
+                value: chu-h5-color-blue
+            -
+                label: Purple
+                value: chu-h5-color-purple
+            -
+                label: Pink
+                value: chu-h5-color-pink
+            -
+                label: Custom
+                value: chu-h5-color-custom
+    -
+        id: chu-h5-color-custom
+        title: H5 custom underline color
+        type: variable-color
+        format: hex
+        default: '#'
+    -
+        id: chu-h6-color
+        title: H6 underline color
+        type: class-select
+        allowEmpty: false
+        default: chu-h6-color-purple
+        options:
+            -
+                label: Disable
+                value: chu-h6-color-disable
+            -
+                label: Accent
+                value: chu-h6-color-accent
+            -
+                label: Red
+                value: chu-h6-color-red
+            -
+                label: Orange
+                value: chu-h6-color-orange
+            -
+                label: Yellow
+                value: chu-h6-color-yellow
+            -
+                label: Green
+                value: chu-h6-color-green
+            -
+                label: Cyan
+                value: chu-h6-color-cyan
+            -
+                label: Blue
+                value: chu-h6-color-blue
+            -
+                label: Purple
+                value: chu-h6-color-purple
+            -
+                label: Pink
+                value: chu-h6-color-pink
+            -
+                label: Custom
+                value: chu-h6-color-custom
+    -
+        id: chu-h6-color-custom
+        title: H6 custom underline color
+        type: variable-color
+        format: hex
+        default: '#'
+
+*/
+
+/* Default values */
+body {
+    --chu-underline-height: 4px;
+    --chu-underline-border-radius: 8px;
+    --chu-underline-opacity: 50%;
+    --chu-position-read: 0em;
+    --chu-position-edit: -0.4em;
+    --chu-padding: 0.5em;
+}
+
+/* Reading view */
+.markdown-preview-view :is(h1, h2, h3, h4, h5, h6) {
+    padding-bottom: var(--chu-padding);
+    position: relative;
+}
+
+.markdown-preview-view :is(h1, h2, h3, h4, h5, h6)::before {
+    content: '';
+    position: absolute;
+    bottom: var(--chu-position-read);
+    left: 0;
+    width: var(--underline-width);
+    height: var(--chu-underline-height);
+    border-radius: var(--chu-underline-border-radius);
+    z-index: 0;
+}
+
+body.chu-width-full .markdown-preview-view :is(h1, h2, h3, h4, h5, h6)::before {
+    width: 100%;
+}
+
+/* Editing view */
+.cm-line:is(.HyperMD-header-1, .HyperMD-header-2, .HyperMD-header-3, .HyperMD-header-4, .HyperMD-header-5, .HyperMD-header-6) {
+    position: relative;
+    padding-bottom: var(--chu-padding);
+    margin-bottom: 1em !important;
+}
+
+.cm-line:is(.HyperMD-header-1, .HyperMD-header-2, .HyperMD-header-3, .HyperMD-header-4, .HyperMD-header-5, .HyperMD-header-6)::before {
+    content: '';
+    position: absolute;
+    bottom: var(--chu-position-edit);
+    left: 0;
+    width: var(--underline-width);
+    height: var(--chu-underline-height);
+    border-radius: var(--chu-underline-border-radius);
+    z-index: 0;
+}
+
+body.chu-width-full .cm-line:is(.HyperMD-header-1, .HyperMD-header-2, .HyperMD-header-3, .HyperMD-header-4, .HyperMD-header-5, .HyperMD-header-6)::before {
+    width: 100%;
+}
+
+/* Add space to line following a heading */
+.cm-line:is(.HyperMD-header-1, .HyperMD-header-2, .HyperMD-header-3, .HyperMD-header-4, .HyperMD-header-5, .HyperMD-header-6) + .cm-line {
+    margin-top: 0.8em !important;
+}
+
+/* ========== DISABLE OPTIONS ========== */
+body.chu-h1-color-disable .markdown-preview-view h1::before,
+body.chu-h1-color-disable .cm-line.HyperMD-header-1::before {
+    display: none;
+}
+body.chu-h2-color-disable .markdown-preview-view h2::before,
+body.chu-h2-color-disable .cm-line.HyperMD-header-2::before {
+    display: none;
+}
+body.chu-h3-color-disable .markdown-preview-view h3::before,
+body.chu-h3-color-disable .cm-line.HyperMD-header-3::before {
+    display: none;
+}
+body.chu-h4-color-disable .markdown-preview-view h4::before,
+body.chu-h4-color-disable .cm-line.HyperMD-header-4::before {
+    display: none;
+}
+body.chu-h5-color-disable .markdown-preview-view h5::before,
+body.chu-h5-color-disable .cm-line.HyperMD-header-5::before {
+    display: none;
+}
+body.chu-h6-color-disable .markdown-preview-view h6::before,
+body.chu-h6-color-disable .cm-line.HyperMD-header-6::before {
+    display: none;
+}
+
+/* ========== H1 COLORS ========== */
+body.chu-h1-color-accent .markdown-preview-view h1::before,
+body.chu-h1-color-accent .cm-line.HyperMD-header-1::before {
+    background-color: color-mix(in srgb, var(--color-accent) var(--chu-underline-opacity, 50%), transparent);
+}
+body.chu-h1-color-red .markdown-preview-view h1::before,
+body.chu-h1-color-red .cm-line.HyperMD-header-1::before {
+    background-color: color-mix(in srgb, var(--color-red) var(--chu-underline-opacity, 50%), transparent);
+}
+body.chu-h1-color-orange .markdown-preview-view h1::before,
+body.chu-h1-color-orange .cm-line.HyperMD-header-1::before {
+    background-color: color-mix(in srgb, var(--color-orange) var(--chu-underline-opacity, 50%), transparent);
+}
+body.chu-h1-color-yellow .markdown-preview-view h1::before,
+body.chu-h1-color-yellow .cm-line.HyperMD-header-1::before {
+    background-color: color-mix(in srgb, var(--color-yellow) var(--chu-underline-opacity, 50%), transparent);
+}
+body.chu-h1-color-green .markdown-preview-view h1::before,
+body.chu-h1-color-green .cm-line.HyperMD-header-1::before {
+    background-color: color-mix(in srgb, var(--color-green) var(--chu-underline-opacity, 50%), transparent);
+}
+body.chu-h1-color-cyan .markdown-preview-view h1::before,
+body.chu-h1-color-cyan .cm-line.HyperMD-header-1::before {
+    background-color: color-mix(in srgb, var(--color-cyan) var(--chu-underline-opacity, 50%), transparent);
+}
+body.chu-h1-color-blue .markdown-preview-view h1::before,
+body.chu-h1-color-blue .cm-line.HyperMD-header-1::before {
+    background-color: color-mix(in srgb, var(--color-blue) var(--chu-underline-opacity, 50%), transparent);
+}
+body.chu-h1-color-purple .markdown-preview-view h1::before,
+body.chu-h1-color-purple .cm-line.HyperMD-header-1::before {
+    background-color: color-mix(in srgb, var(--color-purple) var(--chu-underline-opacity, 50%), transparent);
+}
+body.chu-h1-color-pink .markdown-preview-view h1::before,
+body.chu-h1-color-pink .cm-line.HyperMD-header-1::before {
+    background-color: color-mix(in srgb, var(--color-pink) var(--chu-underline-opacity, 50%), transparent);
+}
+body.chu-h1-color-custom .markdown-preview-view h1::before,
+body.chu-h1-color-custom .cm-line.HyperMD-header-1::before {
+    background-color: color-mix(in srgb, var(--chu-h1-color-custom) var(--chu-underline-opacity, 50%), transparent);
+}
+
+/* ========== H2 COLORS ========== */
+body.chu-h2-color-accent .markdown-preview-view h2::before,
+body.chu-h2-color-accent .cm-line.HyperMD-header-2::before {
+    background-color: color-mix(in srgb, var(--color-accent) var(--chu-underline-opacity, 50%), transparent);
+}
+body.chu-h2-color-red .markdown-preview-view h2::before,
+body.chu-h2-color-red .cm-line.HyperMD-header-2::before {
+    background-color: color-mix(in srgb, var(--color-red) var(--chu-underline-opacity, 50%), transparent);
+}
+body.chu-h2-color-orange .markdown-preview-view h2::before,
+body.chu-h2-color-orange .cm-line.HyperMD-header-2::before {
+    background-color: color-mix(in srgb, var(--color-orange) var(--chu-underline-opacity, 50%), transparent);
+}
+body.chu-h2-color-yellow .markdown-preview-view h2::before,
+body.chu-h2-color-yellow .cm-line.HyperMD-header-2::before {
+    background-color: color-mix(in srgb, var(--color-yellow) var(--chu-underline-opacity, 50%), transparent);
+}
+body.chu-h2-color-green .markdown-preview-view h2::before,
+body.chu-h2-color-green .cm-line.HyperMD-header-2::before {
+    background-color: color-mix(in srgb, var(--color-green) var(--chu-underline-opacity, 50%), transparent);
+}
+body.chu-h2-color-cyan .markdown-preview-view h2::before,
+body.chu-h2-color-cyan .cm-line.HyperMD-header-2::before {
+    background-color: color-mix(in srgb, var(--color-cyan) var(--chu-underline-opacity, 50%), transparent);
+}
+body.chu-h2-color-blue .markdown-preview-view h2::before,
+body.chu-h2-color-blue .cm-line.HyperMD-header-2::before {
+    background-color: color-mix(in srgb, var(--color-blue) var(--chu-underline-opacity, 50%), transparent);
+}
+body.chu-h2-color-purple .markdown-preview-view h2::before,
+body.chu-h2-color-purple .cm-line.HyperMD-header-2::before {
+    background-color: color-mix(in srgb, var(--color-purple) var(--chu-underline-opacity, 50%), transparent);
+}
+body.chu-h2-color-pink .markdown-preview-view h2::before,
+body.chu-h2-color-pink .cm-line.HyperMD-header-2::before {
+    background-color: color-mix(in srgb, var(--color-pink) var(--chu-underline-opacity, 50%), transparent);
+}
+body.chu-h2-color-custom .markdown-preview-view h2::before,
+body.chu-h2-color-custom .cm-line.HyperMD-header-2::before {
+    background-color: color-mix(in srgb, var(--chu-h2-color-custom) var(--chu-underline-opacity, 50%), transparent);
+}
+
+/* ========== H3 COLORS ========== */
+body.chu-h3-color-accent .markdown-preview-view h3::before,
+body.chu-h3-color-accent .cm-line.HyperMD-header-3::before {
+    background-color: color-mix(in srgb, var(--color-accent) var(--chu-underline-opacity, 50%), transparent);
+}
+body.chu-h3-color-red .markdown-preview-view h3::before,
+body.chu-h3-color-red .cm-line.HyperMD-header-3::before {
+    background-color: color-mix(in srgb, var(--color-red) var(--chu-underline-opacity, 50%), transparent);
+}
+body.chu-h3-color-orange .markdown-preview-view h3::before,
+body.chu-h3-color-orange .cm-line.HyperMD-header-3::before {
+    background-color: color-mix(in srgb, var(--color-orange) var(--chu-underline-opacity, 50%), transparent);
+}
+body.chu-h3-color-yellow .markdown-preview-view h3::before,
+body.chu-h3-color-yellow .cm-line.HyperMD-header-3::before {
+    background-color: color-mix(in srgb, var(--color-yellow) var(--chu-underline-opacity, 50%), transparent);
+}
+body.chu-h3-color-green .markdown-preview-view h3::before,
+body.chu-h3-color-green .cm-line.HyperMD-header-3::before {
+    background-color: color-mix(in srgb, var(--color-green) var(--chu-underline-opacity, 50%), transparent);
+}
+body.chu-h3-color-cyan .markdown-preview-view h3::before,
+body.chu-h3-color-cyan .cm-line.HyperMD-header-3::before {
+    background-color: color-mix(in srgb, var(--color-cyan) var(--chu-underline-opacity, 50%), transparent);
+}
+body.chu-h3-color-blue .markdown-preview-view h3::before,
+body.chu-h3-color-blue .cm-line.HyperMD-header-3::before {
+    background-color: color-mix(in srgb, var(--color-blue) var(--chu-underline-opacity, 50%), transparent);
+}
+body.chu-h3-color-purple .markdown-preview-view h3::before,
+body.chu-h3-color-purple .cm-line.HyperMD-header-3::before {
+    background-color: color-mix(in srgb, var(--color-purple) var(--chu-underline-opacity, 50%), transparent);
+}
+body.chu-h3-color-pink .markdown-preview-view h3::before,
+body.chu-h3-color-pink .cm-line.HyperMD-header-3::before {
+    background-color: color-mix(in srgb, var(--color-pink) var(--chu-underline-opacity, 50%), transparent);
+}
+body.chu-h3-color-custom .markdown-preview-view h3::before,
+body.chu-h3-color-custom .cm-line.HyperMD-header-3::before {
+    background-color: color-mix(in srgb, var(--chu-h3-color-custom) var(--chu-underline-opacity, 50%), transparent);
+}
+
+/* ========== H4 COLORS ========== */
+body.chu-h4-color-accent .markdown-preview-view h4::before,
+body.chu-h4-color-accent .cm-line.HyperMD-header-4::before {
+    background-color: color-mix(in srgb, var(--color-accent) var(--chu-underline-opacity, 50%), transparent);
+}
+body.chu-h4-color-red .markdown-preview-view h4::before,
+body.chu-h4-color-red .cm-line.HyperMD-header-4::before {
+    background-color: color-mix(in srgb, var(--color-red) var(--chu-underline-opacity, 50%), transparent);
+}
+body.chu-h4-color-orange .markdown-preview-view h4::before,
+body.chu-h4-color-orange .cm-line.HyperMD-header-4::before {
+    background-color: color-mix(in srgb, var(--color-orange) var(--chu-underline-opacity, 50%), transparent);
+}
+body.chu-h4-color-yellow .markdown-preview-view h4::before,
+body.chu-h4-color-yellow .cm-line.HyperMD-header-4::before {
+    background-color: color-mix(in srgb, var(--color-yellow) var(--chu-underline-opacity, 50%), transparent);
+}
+body.chu-h4-color-green .markdown-preview-view h4::before,
+body.chu-h4-color-green .cm-line.HyperMD-header-4::before {
+    background-color: color-mix(in srgb, var(--color-green) var(--chu-underline-opacity, 50%), transparent);
+}
+body.chu-h4-color-cyan .markdown-preview-view h4::before,
+body.chu-h4-color-cyan .cm-line.HyperMD-header-4::before {
+    background-color: color-mix(in srgb, var(--color-cyan) var(--chu-underline-opacity, 50%), transparent);
+}
+body.chu-h4-color-blue .markdown-preview-view h4::before,
+body.chu-h4-color-blue .cm-line.HyperMD-header-4::before {
+    background-color: color-mix(in srgb, var(--color-blue) var(--chu-underline-opacity, 50%), transparent);
+}
+body.chu-h4-color-purple .markdown-preview-view h4::before,
+body.chu-h4-color-purple .cm-line.HyperMD-header-4::before {
+    background-color: color-mix(in srgb, var(--color-purple) var(--chu-underline-opacity, 50%), transparent);
+}
+body.chu-h4-color-pink .markdown-preview-view h4::before,
+body.chu-h4-color-pink .cm-line.HyperMD-header-4::before {
+    background-color: color-mix(in srgb, var(--color-pink) var(--chu-underline-opacity, 50%), transparent);
+}
+body.chu-h4-color-custom .markdown-preview-view h4::before,
+body.chu-h4-color-custom .cm-line.HyperMD-header-4::before {
+    background-color: color-mix(in srgb, var(--chu-h4-color-custom) var(--chu-underline-opacity, 50%), transparent);
+}
+
+/* ========== H5 COLORS ========== */
+body.chu-h5-color-accent .markdown-preview-view h5::before,
+body.chu-h5-color-accent .cm-line.HyperMD-header-5::before {
+    background-color: color-mix(in srgb, var(--color-accent) var(--chu-underline-opacity, 50%), transparent);
+}
+body.chu-h5-color-red .markdown-preview-view h5::before,
+body.chu-h5-color-red .cm-line.HyperMD-header-5::before {
+    background-color: color-mix(in srgb, var(--color-red) var(--chu-underline-opacity, 50%), transparent);
+}
+body.chu-h5-color-orange .markdown-preview-view h5::before,
+body.chu-h5-color-orange .cm-line.HyperMD-header-5::before {
+    background-color: color-mix(in srgb, var(--color-orange) var(--chu-underline-opacity, 50%), transparent);
+}
+body.chu-h5-color-yellow .markdown-preview-view h5::before,
+body.chu-h5-color-yellow .cm-line.HyperMD-header-5::before {
+    background-color: color-mix(in srgb, var(--color-yellow) var(--chu-underline-opacity, 50%), transparent);
+}
+body.chu-h5-color-green .markdown-preview-view h5::before,
+body.chu-h5-color-green .cm-line.HyperMD-header-5::before {
+    background-color: color-mix(in srgb, var(--color-green) var(--chu-underline-opacity, 50%), transparent);
+}
+body.chu-h5-color-cyan .markdown-preview-view h5::before,
+body.chu-h5-color-cyan .cm-line.HyperMD-header-5::before {
+    background-color: color-mix(in srgb, var(--color-cyan) var(--chu-underline-opacity, 50%), transparent);
+}
+body.chu-h5-color-blue .markdown-preview-view h5::before,
+body.chu-h5-color-blue .cm-line.HyperMD-header-5::before {
+    background-color: color-mix(in srgb, var(--color-blue) var(--chu-underline-opacity, 50%), transparent);
+}
+body.chu-h5-color-purple .markdown-preview-view h5::before,
+body.chu-h5-color-purple .cm-line.HyperMD-header-5::before {
+    background-color: color-mix(in srgb, var(--color-purple) var(--chu-underline-opacity, 50%), transparent);
+}
+body.chu-h5-color-pink .markdown-preview-view h5::before,
+body.chu-h5-color-pink .cm-line.HyperMD-header-5::before {
+    background-color: color-mix(in srgb, var(--color-pink) var(--chu-underline-opacity, 50%), transparent);
+}
+body.chu-h5-color-custom .markdown-preview-view h5::before,
+body.chu-h5-color-custom .cm-line.HyperMD-header-5::before {
+    background-color: color-mix(in srgb, var(--chu-h5-color-custom) var(--chu-underline-opacity, 50%), transparent);
+}
+
+/* ========== H6 COLORS ========== */
+body.chu-h6-color-accent .markdown-preview-view h6::before,
+body.chu-h6-color-accent .cm-line.HyperMD-header-6::before {
+    background-color: color-mix(in srgb, var(--color-accent) var(--chu-underline-opacity, 50%), transparent);
+}
+body.chu-h6-color-red .markdown-preview-view h6::before,
+body.chu-h6-color-red .cm-line.HyperMD-header-6::before {
+    background-color: color-mix(in srgb, var(--color-red) var(--chu-underline-opacity, 50%), transparent);
+}
+body.chu-h6-color-orange .markdown-preview-view h6::before,
+body.chu-h6-color-orange .cm-line.HyperMD-header-6::before {
+    background-color: color-mix(in srgb, var(--color-orange) var(--chu-underline-opacity, 50%), transparent);
+}
+body.chu-h6-color-yellow .markdown-preview-view h6::before,
+body.chu-h6-color-yellow .cm-line.HyperMD-header-6::before {
+    background-color: color-mix(in srgb, var(--color-yellow) var(--chu-underline-opacity, 50%), transparent);
+}
+body.chu-h6-color-green .markdown-preview-view h6::before,
+body.chu-h6-color-green .cm-line.HyperMD-header-6::before {
+    background-color: color-mix(in srgb, var(--color-green) var(--chu-underline-opacity, 50%), transparent);
+}
+body.chu-h6-color-cyan .markdown-preview-view h6::before,
+body.chu-h6-color-cyan .cm-line.HyperMD-header-6::before {
+    background-color: color-mix(in srgb, var(--color-cyan) var(--chu-underline-opacity, 50%), transparent);
+}
+body.chu-h6-color-blue .markdown-preview-view h6::before,
+body.chu-h6-color-blue .cm-line.HyperMD-header-6::before {
+    background-color: color-mix(in srgb, var(--color-blue) var(--chu-underline-opacity, 50%), transparent);
+}
+body.chu-h6-color-purple .markdown-preview-view h6::before,
+body.chu-h6-color-purple .cm-line.HyperMD-header-6::before {
+    background-color: color-mix(in srgb, var(--color-purple) var(--chu-underline-opacity, 50%), transparent);
+}
+body.chu-h6-color-pink .markdown-preview-view h6::before,
+body.chu-h6-color-pink .cm-line.HyperMD-header-6::before {
+    background-color: color-mix(in srgb, var(--color-pink) var(--chu-underline-opacity, 50%), transparent);
+}
+body.chu-h6-color-custom .markdown-preview-view h6::before,
+body.chu-h6-color-custom .cm-line.HyperMD-header-6::before {
+    background-color: color-mix(in srgb, var(--chu-h6-color-custom) var(--chu-underline-opacity, 50%), transparent);
+}
