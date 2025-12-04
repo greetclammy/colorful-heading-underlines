@@ -1,5 +1,9 @@
 # Colorful Heading Underlines
 
+Add colorful underlines to identify heading levels.
+
+![](https://forum.obsidian.md/uploads/default/original/3X/d/e/deb406d6d302c95c422a7601c8c268f1b7bfc072.jpeg)
+
 ## ✅ Install
 
 Untill _Colorful Heading Underlines_ is [made availiable](https://github.com/obsidianmd/obsidian-releases/pull/8820) in the plugin directory, follow the steps below to install it.
