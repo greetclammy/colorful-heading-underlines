@@ -12,7 +12,7 @@ export default class ColorfulHeadingUnderlinePlugin extends Plugin {
   private observer: MutationObserver | null = null;
   private pendingProcess = false;
 
-  async onload(): Promise<void> {
+  onload(): void {
     this.setupObserver();
 
     this.app.workspace.onLayoutReady(() => {
